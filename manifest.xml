@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MailApp">
+  <Id>e7c5b996-a0b4-426b-97eb-2e7ff491bf79</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Max Knor</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Iban Mate"/>
+  <Description DefaultValue="Iban Mate Application"/>
+  <HighResolutionIconUrl DefaultValue="https://foo"/>
+  <SupportUrl DefaultValue="http://foo"/>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="MailBox" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://localhost:8443/appread/home/home.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://localhost:8443/appcompose/home/home.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <!--<Rule xsi:type="RuleCollection" Mode="And">-->
+    <Rule xsi:type="RuleCollection" Mode="Or">
+      <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+      <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+    </Rule>
+    <!--<Rule xsi:type="ItemHasRegularExpressionMatch" 
+        RegExName="ibanMatches" 
+        RegExValue="[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}" 
+        PropertyName="BodyAsPlaintext"/>-->
+  <!--</Rule>-->
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+</OfficeApp>
